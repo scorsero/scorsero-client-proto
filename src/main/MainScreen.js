@@ -1,14 +1,9 @@
 /**
  * Created by dim3coder on 10/21/17.
  */
-import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-
+import React, {Component} from "react";
+import {FlatList, Platform, StyleSheet, Text, View} from "react-native";
+import {inject, observer} from "mobx-react";
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -17,19 +12,15 @@ const instructions = Platform.select({
   'Shake or press menu button for dev menu',
 });
 
+@inject('store') @observer
 export default class MainScreen extends Component<{}> {
   render() {
+    const list = this.props.store.scores.peek();
     return (
         <View style={styles.container}>
-          <Text style={styles.welcome}>
-            Welcome to React Native!
-          </Text>
-          <Text style={styles.instructions}>
-            To get started, edit App.js
-          </Text>
-          <Text style={styles.instructions}>
-            {instructions}
-          </Text>
+          <FlatList
+              data={list}
+              renderItem={(item => <Text>item</Text>)}/>
         </View>
     );
   }
