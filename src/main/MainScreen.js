@@ -20,7 +20,7 @@ export default class MainScreen extends Component<{}> {
         <View style={styles.container}>
           <FlatList
               data={list}
-              renderItem={(item => <Text>item</Text>)}/>
+              renderItem={(({item}) => <Text>{item}</Text>)}/>
         </View>
     );
   }
