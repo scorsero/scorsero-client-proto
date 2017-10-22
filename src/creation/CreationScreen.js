@@ -1,32 +1,20 @@
 /**
- * Created by dim3coder on 10/21/17.
+ * Created by dim3coder on 10/22/17.
  */
 import React, {Component} from "react";
-import {Button, FlatList, Platform, StyleSheet, Text, View} from "react-native";
+import {FlatList, Platform, StyleSheet, Text, View} from "react-native";
 import {inject, observer} from "mobx-react";
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-  'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-  'Shake or press menu button for dev menu',
-});
-
 @inject('store') @observer
-export default class MainScreen extends Component<{}> {
+export default class CreationScreen extends Component<{}> {
   static navigationOptions = ({navigation}) => ({
-    title: "Scores",
+    title: "Create new",
   });
-
   render() {
-    const { navigate } = this.props.navigation;
     const list = this.props.store.scores.peek();
     return (
         <View style={styles.container}>
-          <Button title={"test"} onPress={() => navigate('Create',{})}/>
-          <FlatList
-              data={list}
-              renderItem={(({item}) => <Text>{item}</Text>)}/>
+          <Text>Creation page</Text>
         </View>
     );
   }

@@ -9,9 +9,11 @@ import {StackNavigator} from "react-navigation";
 import MainScreen from "./src/main/MainScreen";
 import {Provider} from "mobx-react";
 import ScoreStore from "./src/store/ScoreStore";
+import CreationScreen from "./src/creation/CreationScreen";
 
 const ScorseroApp = StackNavigator({
-  Main: {screen: MainScreen}
+  Main: {screen: MainScreen},
+  Create: {screen: CreationScreen}
 });
 
 export default class App extends Component<{}> {
